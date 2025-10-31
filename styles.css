@@ -1,0 +1,85 @@
+/* Base */
+@font-face{font-family:"Math Sans";src:local("Baskerville");}
+:root{
+  --green:#215a3b;
+  --cream:#f3eadb;
+  --gold:#c6a544;
+  --text:#2a241d;
+  --burn: #3a2a1a;
+  --shadow: rgba(0,0,0,.35);
+  --round: 18px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Georgia', serif;
+  color:var(--text);
+  background: url('wallpaper-tile.png') center/80px repeat var(--green);
+}
+
+h1,h2,h3,h4{font-style: italic; font-weight: 700;}
+main{padding:0 14px 90px 14px;}
+
+/* Oak bands and burnt text */
+.oak-band{
+  background: url('light-oak.jpg') center/cover no-repeat;
+  color: transparent;
+  padding:14px 20px;
+  position:sticky; top:0; z-index:3;
+}
+.footer{position:relative; bottom:0; top:auto; text-align:center;}
+.burnt{
+  font-size: clamp(26px, 4.8vw, 56px);
+  color:#5a3f2a;
+  text-shadow:
+    0 1px 0 rgba(0,0,0,.15),
+    0 2px 0 rgba(0,0,0,.1),
+    0 3px 6px rgba(0,0,0,.35),
+    0 0 0 #5a3f2a;
+  mix-blend-mode: multiply;
+}
+
+.oak-heading{background:url('light-oak.jpg') center/cover no-repeat; padding:14px 16px; border-radius:10px; display:inline-block; margin:0 0 12px;}
+
+.hero img{width:100%; height:auto; display:block; border-radius:12px; box-shadow:0 10px 30px var(--shadow);}
+
+.panel{margin:26px auto; max-width:980px; padding:10px;}
+.cream.card{background:var(--cream); border-radius:var(--round); padding:20px; box-shadow:0 14px 30px var(--shadow);}
+.cards .cream{margin:10px 0;}
+
+/* Lists */
+.cards, .gig-cards, .fixtures, .gallery-strip, .video-list{display:grid; gap:16px;}
+.gig-card, .fixture{background:var(--cream); border-radius: var(--round); padding:14px; box-shadow:0 10px 24px var(--shadow);}
+.gig-card img{width:100%; height:auto; border-radius:12px; display:block;}
+
+/* Hours table */
+.hours{width:100%; border-collapse:separate; border-spacing:0 10px; font-size:1.05rem;}
+.hours td{background:var(--cream); padding:12px 16px; border-radius:12px; box-shadow:0 6px 16px var(--shadow);}
+.hours td:first-child{font-weight:700; width:40%;}
+
+/* Gallery strip */
+.gallery-strip{grid-auto-flow:column; grid-auto-columns:80%; overflow-x:auto; padding-bottom:6px;}
+.gallery-strip img{width:100%; height:auto; border-radius:14px; box-shadow:0 8px 22px var(--shadow);}
+
+/* Floating action button (hidden until revealed) */
+.fab{position:fixed; right:16px; bottom:16px; width:56px; height:56px; border-radius:50%; border:none; font-size:22px; background:#1d1d1d; color:#fff; box-shadow:0 10px 30px var(--shadow); z-index:5;}
+
+/* Admin modal */
+dialog{border:none; padding:0; border-radius:14px; width:min(760px, 94vw); max-height:85vh;}
+.admin-form{padding:12px 14px 14px; overflow:auto; max-height:85vh;}
+.admin-head{display:flex; justify-content:space-between; align-items:center;}
+.close{background:none; border:none; font-size:22px;}
+.row{margin:12px 0;}
+.two{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+.two-rows{display:grid; grid-template-columns:1fr 1fr; gap:8px;}
+.fx-rows{display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;}
+.pass{display:flex; gap:8px; align-items:center;}
+.pass input{flex:1;}
+.primary{background:#1a4; color:#fff; border:none; padding:10px 14px; border-radius:10px; font-weight:700;}
+.link{background:none; border:1px dashed #888; padding:6px 10px; border-radius:8px;}
+.muted{color:#666}
+input, textarea, select{width:100%; padding:10px 12px; border:1px solid #bbb; border-radius:10px; font-size:1rem; background:#fff;}
+label{display:block; font-weight:700; margin:6px 0;}
+.gig-meta-row{display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px;}
+.gig-meta-row input{width:100%;}

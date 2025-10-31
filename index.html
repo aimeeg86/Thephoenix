@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Phoenix Bar</title>
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" sizes="192x192" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-192.png">
+  <link rel="preload" as="image" href="wallpaper-tile.png">
+  <link rel="preload" as="image" href="light-oak.jpg">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="oak-band">
+    <h1 class="burnt">The Phoenix Bar</h1>
+  </header>
+
+  <main>
+    <section id="hero" class="hero"><img id="heroImg" src="phoenix-hero.jpg" alt="The Phoenix Bar exterior"></section>
+
+    <section id="about" class="panel">
+      <h2 class="burnt oak-heading">About Us</h2>
+      <div class="cream card">
+        <p id="aboutText">Welcome to The Phoenix Bar, your local pub on Royal Wootton Bassett High Street! Dogs are always welcome, the pints are cheap, and there’s never a dull moment. With three TVs for live sport, dart boards, a pool table, and a beer garden made for sunny afternoons, it’s the perfect spot for any occasion. Add in live music most weekends and a friendly crowd, and you’ve got yourself a proper pub you’ll want to come back to.</p>
+      </div>
+    </section>
+
+    <section id="offers" class="panel">
+      <h2 class="burnt oak-heading">Drink Offers</h2>
+      <div class="cream card">
+        <ul id="drinkOffers">
+          <li>Happy Hour Mon–Fri 4–6pm</li>
+          <li>2-for-£10 cocktails every Friday</li>
+          <li>Local ales on rotation</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="whatsOn" class="panel">
+      <h2 class="burnt oak-heading">What’s On</h2>
+      <div id="whatsOnList" class="cards"></div>
+    </section>
+
+    <section id="music" class="panel">
+      <h2 class="burnt oak-heading">Live Music</h2>
+      <div id="gigList" class="gig-cards"></div>
+    </section>
+
+    <section id="football" class="panel">
+      <h2 class="burnt oak-heading">Football on TV</h2>
+      <div id="fixtures" class="fixtures"></div>
+    </section>
+
+    <section id="hours" class="panel">
+      <h2 class="burnt oak-heading">Opening Times</h2>
+      <div class="cream card">
+        <table id="hoursTable" class="hours"></table>
+      </div>
+    </section>
+
+    <section id="gallery" class="panel">
+      <h2 class="burnt oak-heading">Gallery</h2>
+      <div id="galleryStrip" class="gallery-strip" aria-label="Gallery"></div>
+    </section>
+
+    <section id="videos" class="panel">
+      <h2 class="burnt oak-heading">Videos</h2>
+      <div id="videoList" class="video-list"></div>
+    </section>
+
+    <section id="contact" class="panel">
+      <h2 class="burnt oak-heading">Contact Us</h2>
+      <div class="cream card contact">
+        <p><strong>Address:</strong> <span id="address">3–4 The High Street, Royal Wootton Bassett, SN4 7BS</span></p>
+        <p><strong>Telephone:</strong> <a id="telephone" href="tel:01234567890">01234 567890</a></p>
+        <p><strong>Facebook:</strong> <a id="fbLink" href="#" target="_blank" rel="noopener">The Phoenix Bar</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="siteFooter" class="oak-band footer">
+    <div class="burnt">© 2025 The Phoenix Bar · Royal Wootton Bassett</div>
+  </footer>
+
+  <!-- Hidden floating lock -->
+  <button id="lockBtn" class="fab" aria-label="Admin lock" hidden>🔒</button>
+
+  <!-- Admin modal -->
+  <dialog id="adminModal">
+    <form method="dialog" class="admin-form">
+      <header class="admin-head">
+        <h3>Admin</h3>
+        <button class="close" value="cancel" aria-label="Close">✕</button>
+      </header>
+
+      <section class="row">
+        <label>Passphrase</label>
+        <div class="pass">
+          <input id="passField" type="password" inputmode="text" autocomplete="off" placeholder="Enter passphrase" />
+          <button id="unlockBtn" type="button">Unlock</button>
+        </div>
+        <small id="lockState" class="muted">Locked</small>
+      </section>
+
+      <hr>
+
+      <section class="row">
+        <h4>Update hero photo</h4>
+        <input id="heroInput" type="file" accept="image/*">
+      </section>
+
+      <section class="row">
+        <h4>Add gallery photos</h4>
+        <input id="galleryInput" type="file" accept="image/*" multiple>
+        <button id="clearGallery" type="button" class="link">Clear gallery</button>
+      </section>
+
+      <section class="row">
+        <h4>Add gig posters (up to 4)</h4>
+        <input id="gigInput" type="file" accept="image/*" multiple>
+        <div id="gigMeta" class="gig-meta">
+          <!-- 4 gig meta rows -->
+        </div>
+        <button id="resetGigs" type="button" class="link">Reset gigs</button>
+      </section>
+
+      <section class="row">
+        <h4>Football fixtures (next 3)</h4>
+        <div id="fxRows" class="fx-rows"></div>
+      </section>
+
+      <section class="row">
+        <h4>Videos</h4>
+        <textarea id="videosInput" rows="3" placeholder="One YouTube/FB/MP4 URL per line"></textarea>
+      </section>
+
+      <section class="row">
+        <h4>About & Contact</h4>
+        <label>About text</label>
+        <textarea id="aboutInput" rows="5"></textarea>
+        <div class="two">
+          <div><label>Telephone</label><input id="telInput" type="tel"></div>
+          <div><label>Facebook title</label><input id="fbTitleInput" type="text"></div>
+        </div>
+        <label>Facebook URL</label>
+        <input id="fbUrlInput" type="url" placeholder="https://...">
+        <label>Address</label>
+        <input id="addrInput" type="text">
+      </section>
+
+      <section class="row">
+        <h4>Drink offers (one per line)</h4>
+        <textarea id="offersInput" rows="4"></textarea>
+      </section>
+
+      <section class="row">
+        <h4>What’s On (Mon–Sun)</h4>
+        <div id="woRows" class="two-rows"></div>
+      </section>
+
+      <section class="row">
+        <h4>Opening Times (Mon–Sun)</h4>
+        <div id="hrRows" class="two-rows"></div>
+      </section>
+
+      <footer class="admin-foot">
+        <button id="saveBtn" type="button" class="primary">Save</button>
+      </footer>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
