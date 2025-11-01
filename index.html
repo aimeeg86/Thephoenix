@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>The Phoenix Bar</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icon-192.png">
+  <link rel="apple-touch-icon" href="icon-512.png">
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <header class="oak-strip">
+    <h1>The Phoenix Bar</h1>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img id="heroImage" alt="The Phoenix Bar exterior" src="phoenix-hero.jpg"/>
+    </section>
+
+    <section class="block">
+      <div class="oak-label">About Us</div>
+      <div class="card" id="aboutText"></div>
+    </section>
+
+    <section class="block">
+      <div class="oak-label">Drink Offers</div>
+      <div class="card">
+        <ul id="drinkOffers"></ul>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="oak-label">What’s On</div>
+      <div class="card">
+        <dl id="whatsOnList"></dl>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="oak-label">Live Music</div>
+      <div class="gig-grid" id="gigs"></div>
+    </section>
+
+    <section class="block">
+      <div class="oak-label">Football on TV</div>
+      <div class="card" id="fixtures"></div>
+    </section>
+
+    <section class="block">
+      <div class="oak-label">Opening Times</div>
+      <div class="card">
+        <table id="openingTimes" class="hours"></table>
+      </div>
+    </section>
+
+    <section class="block">
+      <div class="oak-label">Gallery</div>
+      <div class="gallery" id="gallery"></div>
+    </section>
+
+    <section class="block">
+      <div class="oak-label">Videos</div>
+      <div class="video-grid" id="videos"></div>
+    </section>
+
+    <section class="block">
+      <div class="oak-label">Contact Us</div>
+      <div class="card" id="contactCard"></div>
+    </section>
+  </main>
+
+  <footer id="siteFooter" class="oak-strip footer">
+    <div class="footer-inner">© 2025 The Phoenix Bar · Royal Wootton Bassett</div>
+  </footer>
+
+  <!-- Lock button (hidden until footer tap x5) -->
+  <button id="lockBtn" class="fab" aria-label="Admin lock" title="Admin">🔒</button>
+
+  <!-- Admin modal -->
+  <dialog id="adminModal">
+    <form method="dialog" class="admin">
+      <header class="admin-head">
+        <h2>Admin</h2>
+        <button class="close" value="cancel" aria-label="Close">✕</button>
+      </header>
+
+      <section class="pass">
+        <label>Enter passphrase to unlock editing. (Hint: Nugget07)</label>
+        <div class="row">
+          <input type="password" id="passInput" placeholder="Enter passphrase">
+          <button type="button" id="unlockBtn">Unlock</button>
+        </div>
+        <div id="lockState" class="muted">Locked</div>
+      </section>
+
+      <section class="admin-block">
+        <h3>Images</h3>
+        <div class="row">
+          <label>Hero photo</label>
+          <input type="file" id="heroFile" accept="image/*">
+        </div>
+        <div class="row">
+          <label>Gallery photos (multiple)</label>
+          <input type="file" id="galleryFiles" accept="image/*" multiple>
+          <button type="button" id="clearGallery" class="outline">Clear gallery</button>
+        </div>
+        <div class="row">
+          <label>Gig posters (up to 4)</label>
+          <input type="file" id="gigFiles" accept="image/*" multiple>
+          <button type="button" id="resetGigs" class="outline">Reset gigs</button>
+        </div>
+        <div class="row">
+          <label>Videos (from phone)</label>
+          <input type="file" id="videoFiles" accept="video/*" multiple>
+          <button type="button" id="clearVideos" class="outline">Clear videos</button>
+        </div>
+      </section>
+
+      <section class="admin-block">
+        <h3>About & Contact</h3>
+        <label>About text</label>
+        <textarea id="aboutInput" rows="6"></textarea>
+
+        <div class="grid-2">
+          <div>
+            <label>Phone</label>
+            <input id="phoneInput" placeholder="Telephone">
+          </div>
+          <div>
+            <label>Facebook title</label>
+            <input id="fbTitleInput" placeholder="The Phoenix Bar">
+          </div>
+          <div class="span-2">
+            <label>Facebook URL</label>
+            <input id="fbUrlInput" placeholder="https://facebook.com/...">
+          </div>
+          <div class="span-2">
+            <label>Address</label>
+            <input id="addressInput" placeholder="Address">
+          </div>
+        </div>
+      </section>
+
+      <section class="admin-block">
+        <h3>Drink offers (one per box)</h3>
+        <div id="offersInputs" class="list-col"></div>
+        <button type="button" id="addOffer" class="outline small">+ Add offer</button>
+      </section>
+
+      <section class="admin-block">
+        <h3>What’s On (Mon–Sun)</h3>
+        <div id="whatsOnInputs" class="days"></div>
+      </section>
+
+      <section class="admin-block">
+        <h3>Opening Times (Mon–Sun)</h3>
+        <div id="timesInputs" class="days"></div>
+      </section>
+
+      <section class="admin-block">
+        <h3>Football fixtures (3)</h3>
+        <div id="fixturesInputs" class="fixtures"></div>
+      </section>
+
+      <menu class="admin-actions">
+        <button value="cancel" class="outline">Close</button>
+        <button id="saveBtn" value="default">Save</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>

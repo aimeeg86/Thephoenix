@@ -1,0 +1,141 @@
+/* ============== Base ============== */
+:root{
+  --cream:#efe3d2;
+  --cream-ink:#2b2a28;
+  --green:#1f5a45;
+  --oak-shadow:#6d4e2e;
+  --card-shadow: 0 18px 30px rgba(0,0,0,.25);
+  --tile-size: 120px;            /* base tile size */
+  --wallpaper-scale: 3;           /* 3x bigger motif as requested */
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-serif, Georgia, 'Times New Roman', serif;
+  color:var(--cream-ink);
+  background: url('wallpaper-tile.png') center/ calc(var(--tile-size)*var(--wallpaper-scale)) repeat var(--green);
+}
+h1,h2,h3{margin:0}
+main{padding:16px 16px 80px}
+
+/* ============== Oak strips ============== */
+.oak-strip{
+  background: url('light-oak.jpg') center/cover no-repeat;
+  padding: 14px 20px;
+  color:#2a1a0d;
+  position: sticky;
+  top:0;
+  z-index:2;
+  box-shadow: inset 0 0 0 9999px rgba(0,0,0,.15);
+}
+.oak-strip h1{ 
+  font-size: 36px;
+  letter-spacing:.5px;
+  text-shadow: 0 3px 0 rgba(0,0,0,.25);
+}
+
+/* Oak label for section heading */
+.oak-label{
+  display:inline-block;
+  background:url('light-oak.jpg') center/cover no-repeat;
+  padding:14px 22px;
+  margin:8px 0 10px;
+  border-radius:22px;
+  color:#2a1a0d;
+  font-weight:700;
+  font-size:28px;
+  box-shadow: inset 0 0 0 9999px rgba(0,0,0,.18), 0 6px 18px rgba(0,0,0,.25);
+  text-shadow: 0 2px 0 rgba(0,0,0,.35);
+}
+
+/* ============== Cards & blocks ============== */
+.block{margin: 6px 0 26px}
+.card{
+  background:linear-gradient(#f8efe4,#efe3d2);
+  border-radius:28px;
+  padding:26px;
+  box-shadow: var(--card-shadow);
+}
+.card ul{margin:0 0 0 1em}
+.card li{margin:10px 0}
+
+/* ============== Hero ============== */
+.hero{
+  margin: 8px 0 20px;
+  border-radius:24px;
+  overflow:hidden;
+  box-shadow: var(--card-shadow);
+}
+.hero img{width:100%;display:block}
+
+/* ============== Hours table ============== */
+.hours{width:100%;border-collapse:separate;border-spacing:0 14px}
+.hours td{padding:6px 10px;font-size:20px}
+.hours td:nth-child(1){font-weight:800}
+
+/* ============== Gigs ============== */
+.gig-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:18px;
+}
+.gig{
+  background:linear-gradient(#f8efe4,#efe3d2);
+  border-radius:22px;
+  overflow:hidden;
+  box-shadow:var(--card-shadow);
+}
+.gig img{width:100%;display:block}
+.gig .p{padding:18px}
+.gig .title{font-weight:800;font-size:22px;margin-bottom:6px}
+.gig .meta{opacity:.8}
+
+/* ============== Gallery & video ============== */
+.gallery, .video-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:10px;
+}
+.gallery img, .video-grid video{
+  width:100%;
+  border-radius:16px;
+  box-shadow:0 8px 18px rgba(0,0,0,.25);
+  background:#000;
+}
+
+/* ============== Footer & lock ============== */
+.footer{margin-top:40px}
+.footer .footer-inner{
+  background:linear-gradient(#f9f0e6,#efe5d7);
+  padding:16px 20px;
+  border-radius:22px;
+  display:inline-block;
+  box-shadow:var(--card-shadow);
+}
+.fab{
+  position:fixed; right:16px; bottom:84px;
+  width:64px;height:64px;border-radius:50%;
+  background:#222;color:#fff;border:none;font-size:28px;
+  box-shadow:0 12px 24px rgba(0,0,0,.35);
+  display:none; align-items:center; justify-content:center;
+}
+
+/* ============== Admin modal ============== */
+#adminModal{width:min(760px, 95vw);border:none;border-radius:16px;padding:0; box-shadow:0 24px 48px rgba(0,0,0,.5)}
+.admin{max-height:85vh; overflow:auto; padding:10px 16px 16px}
+.admin-head{display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;background:#fff;padding:10px 0}
+.admin h3{margin:14px 0 8px}
+.admin .row{display:flex;gap:12px;align-items:center;margin:8px 0;flex-wrap:wrap}
+.admin label{font-weight:700}
+.admin input, .admin textarea, .admin select{width:100%;padding:10px;border:1px solid #ccc;border-radius:10px;font-size:16px}
+.grid-2{display:grid;grid-template-columns:1fr 1fr; gap:12px}
+.grid-2 .span-2{grid-column:1/-1}
+.list-col > div{margin:6px 0}
+.days{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.fixtures .row{align-items:flex-start}
+.outline{background:#fff;border:1px solid #999;border-radius:10px;padding:8px 10px}
+.small{font-size:14px}
+.admin-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:12px}
+.muted{opacity:.7}
+.close{background:#eee;border:none;border-radius:10px;padding:8px 10px}
